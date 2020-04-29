@@ -13,7 +13,6 @@ const dotenv = require('dotenv').config();
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 
-const url = process.env.DATABASEURL;
 const port = process.env.PORT;
 const ip = process.env.IP;
 
@@ -29,12 +28,12 @@ passport.use('local', new LocalStrategy(User.authenticate()));
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+// mongoose.connect(url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// });
 
-mongoose.set('debug', true);
+// mongoose.set('debug', true);
 
 app.use(bodyParser.urlencoded({
     extended: true
